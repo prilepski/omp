@@ -1,6 +1,9 @@
 #include <iostream>
 
 int main(int argc, char **argv) {
-    std::cout << "Hello, world!" << std::endl;
+    int ID = 0;
+    
+    std::cout << "Hello " << ID << std::endl;
+    std::cout << "World " << ID << std::endl;
     return 0;
 }
