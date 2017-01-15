@@ -5,7 +5,7 @@ int main(int argc, char **argv) {
     
   #pragma omp parallel
   {
-    int ID = 1;
+    int ID = omp_get_thread_num();
     
     std::cout << "Hello " << ID << std::endl;
     std::cout << "World " << ID << std::endl;
