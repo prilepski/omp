@@ -1,0 +1,13 @@
+# for Intel compiler on windows
+# copy to make.def
+GCC          = g++
+CPPLINKER     = $(GCC)
+OPTFLAGS    = -fopenmp 
+LIBS        =
+PRE         =
+
+CFLAGS	  = $(OPTFLAGS) 
+
+OBJ=o
+EXE=
+RM=rm

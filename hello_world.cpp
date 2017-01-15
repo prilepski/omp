@@ -1,9 +1,14 @@
 #include <iostream>
+#include <omp.h>
 
 int main(int argc, char **argv) {
-    int ID = 0;
+    
+  #pragma omp parallel
+  {
+    int ID = 1;
     
     std::cout << "Hello " << ID << std::endl;
     std::cout << "World " << ID << std::endl;
+  }
     return 0;
 }
