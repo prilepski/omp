@@ -3,6 +3,7 @@
 
 #define NUM_THREADS 4 // MAx number of threads
 
+// CAlculating PI squencially
 double pi_sequencial() {
   double start_time = omp_get_wtime();
   static long num_steps = 100000;
