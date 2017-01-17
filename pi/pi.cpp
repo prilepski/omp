@@ -25,6 +25,7 @@ double pi_sequencial() {
 }
 
 double pi_threaded() {
+  double start_time = omp_get_wtime();
   static long num_steps = 100000;
 
   double step;
@@ -32,9 +33,9 @@ double pi_threaded() {
   double x, pi = 0, num_threads = 0.0;
   double sum[NUM_THREADS];
 
-  double start_time = omp_get_wtime();
-
   step = 1.0 / (double) num_steps;
+  
+  omp_set_num_threads(NUM_THREADS);
 
   #pragma omp parallel
   {
