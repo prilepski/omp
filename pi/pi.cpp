@@ -61,10 +61,41 @@ double pi_threaded() {
   std::cout << "Threaded PI Time: " << omp_get_wtime() - start_time << std::endl;  
 }
 
+double pi_threaded_atomic() {
+  double start_time = omp_get_wtime();
+  static long num_steps = 100000;
+
+  double pi = 0, num_threads = 0.0;
+
+  double step = 1.0 / (double) num_steps;
+  
+  omp_set_num_threads(NUM_THREADS);
+
+  #pragma omp parallel
+  {
+    int thread_id = omp_get_thread_num();
+    int total_threads = omp_get_num_threads();
+
+    double x, sum = 0;
+    for (double i = thread_id; i < num_steps; i += total_threads){
+      x = (i + 0.5) * step;
+      sum += 4.0 / (1.0 + x * x);
+    }
+
+  #pragma omp critical
+    pi += sum * step;
+  }
+
+
+  std::cout << "Threaded Atomic PI: " << pi << std::endl;
+  std::cout << "Threaded Atomic PI Time: " << omp_get_wtime() - start_time << std::endl;  
+}
+
 int main(int argc, char **argv) {
 
   pi_sequencial();
   pi_threaded();
+  pi_threaded_atomic();
 /*
   #pragma omp parallel
   {
