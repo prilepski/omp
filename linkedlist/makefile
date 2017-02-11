@@ -23,7 +23,7 @@ mandel$(EXE): mandel.$(OBJ)
 	$(CPPLINKER) $(OPTFLAGS) -o mandel$(EXE) mandel.$(OBJ) $(LIBS)
 
 linked$(EXE): linked.$(OBJ) 
-	$(CPPLINKER) $(OPTFLAGS) -o linked$(EXE) linked.$(OBJ) $(LIBS)
+	$(CPPLINKER) $(OPTFLAGS) -o linkedlist$(EXE) linked.$(OBJ) $(LIBS)
 
 #pi_recur$(EXE): pi_recur.$(OBJ) 
 #	$(CLINKER) $(OPTFLAGS) -o pi_recur pi_recur.$(OBJ) $(LIBS)
